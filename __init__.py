@@ -20,11 +20,19 @@ user_collection = pymongo.collection.Collection(db,'hello')
 
 
 #test to insert data to the data base
-@app.route("/test")
-def test():
+@app.route("/insert")
+def insert():
     db.collection.insert_one({"name": "Johaaan"})
     return ("Connected to the data base!")
         
+
+@app.route("/find")
+def find():
+    data=db.collection.find()
+    print(data)
+    for i in data:
+        print(i["name"])
+    return ("Connected to the data base!")
 
 
 app.run(debug=True,port=80)
