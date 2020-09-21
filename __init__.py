@@ -1,3 +1,6 @@
+#pip install flask
+#pip install flask_pymongo
+
 import os
 import json
 import datetime
@@ -22,7 +25,7 @@ user_collection = pymongo.collection.Collection(db,'hello')
 #test to insert data to the data base
 @app.route("/insert")
 def insert():
-    db.collection.insert_one({"name": "Johaaan"})
+    db.collection.insert_one({"name": ["1","2"]})
     return ("Connected to the data base!")
         
 
