@@ -12,7 +12,7 @@ from flask_pymongo import pymongo
 
 app = Flask(__name__)
 
-CONNECTION_STRING = "mongodb+srv://saad:features@cluster0.hdo8c.mongodb.net/<dbname>?retryWrites=true&w=majority"
+CONNECTION_STRING = "mongodb+srv://saad:features@cluster0.hdo8c.mongodb.net/MongoExample1?retryWrites=true&w=majority"
 
 
 
@@ -31,10 +31,10 @@ def insert():
 
 @app.route("/find")
 def find():
-    data=db.collection.find()
+    data=db.consumers.find()
     print(data)
     for i in data:
-        print(i["name"])
+        print(i)
     return ("Connected to the data base!")
 
 
