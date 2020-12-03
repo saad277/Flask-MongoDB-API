@@ -25,7 +25,7 @@ db = client.get_database('<dbname>')
 push_service=FCMNotification(api_key="AAAAIBuM_1E:APA91bGii9bBRWYtiCGdw9zu55pAy_WkQ23Vdj7lv3fsbgU7I6EIrhzNSxxI9_3mPQsLfJOYuZcZ6BGgg5_CUHlCeHNLA_qLJ0YJWfXhCuMonm5AJIvFNrbbg-OilwdmQ1XWQEdH4RBx")
 
 @app.route("/",methods=["GET","POST"])
-def pushNoti():
+def index():
     return Response("Working", status=201)
 
 
@@ -59,5 +59,6 @@ def pushNoti():
         print(result)
     return Response("Success", status=201)
 
-app.run(debug=True,port=80)
+if __name__=="__main__":
+    app.run(debug=True)
 
