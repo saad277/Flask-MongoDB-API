@@ -10,12 +10,14 @@ from bson.objectid import ObjectId
 from flask import Flask,request,jsonify,Response
 from flask_pymongo import pymongo
 from pyfcm import FCMNotification 
+import os
 
-
+port = int(os.environ.get("PORT", 5000))
 
 app = Flask(__name__)
 
 CONNECTION_STRING = "mongodb+srv://yolo:yolo@cluster0.q4imu.mongodb.net/<dbname>?retryWrites=true&w=majority"
+
 
 
 
@@ -60,5 +62,5 @@ def pushNoti():
     return Response("Success", status=201)
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
